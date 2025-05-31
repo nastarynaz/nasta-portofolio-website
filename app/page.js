@@ -1,16 +1,14 @@
-import Hero from "@/src/modules/Hero";
-import Maps from "@/src/modules/Maps";
-import Skills from "@/src/modules/Skills";
-import Contact from "@/src/modules/Contact";
-import ProjectHero from "@/src/modules/ProjectHero";
+import Hero from "@/modules/home/Hero";
+import Skills from "@/modules/home/Skills";
+import Contact from "@/modules/home/Contact";
+import Links from "@/modules/home/Links";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Maps />
       <Skills />
-      <ProjectHero />
+      <Links />
       <Contact />
     </>
   );

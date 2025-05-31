@@ -1,11 +1,11 @@
-import Github from "@/src/modules/Github";
-import ProjectAll from "@/src/modules/ProjectAll";
+import Contribution from "@/modules/projects/Contribution";
+import Project from "@/modules/projects/Project";
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
     <section className="flex flex-col justify-center items-center w-full min-h-screen">
-      <Github />
-      <ProjectAll />
+      <Contribution />
+      <Project />
     </section>
   );
 }
