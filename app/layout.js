@@ -23,7 +23,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body
         className={cn(
           JakartaExtraBold.variable,
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         )}
       >
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
