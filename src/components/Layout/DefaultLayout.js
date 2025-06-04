@@ -4,12 +4,14 @@ export default function DefaultLayout({ className, children, ...props }) {
   return (
     <section
       className={cn(
-        `flex w-full px-[10vw] font-jakarta-regular gap-4 sm:px-10 py-10 md:px-40 xl:px-60 2xl:px-80 flex-col`,
+        `flex relative w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 font-jakarta-regular gap-4 py-10 flex-col items-center`,
         className
       )}
       {...props}
     >
-      {children}
+      <div className="relative max-w-[75rem] w-[85%] lg:w-[75%]">
+        {children}
+      </div>
     </section>
   );
 }

@@ -7,14 +7,15 @@ import { ArrowDownToDot } from "lucide-react";
 
 export default function Hero() {
   return (
-    <DefaultLayout className="items-center">
+    <DefaultLayout className="items-center flex flex-col gap-6 h-screen">
       <NavbarResolver />
-      <div className="flex flex-row justify-evenly items-center">
+      <div className="flex flex-col md:flex-row justify-between w-full items-center">
         <div className="relative flex flex-col">
           <div>
             <span className="text-2xl">Hello, I&apos;m</span>
             <H1 className="text-6xl">Nasta Khoirunas</H1>
           </div>
+          <div className="border-[1px] border-red-500" />
           <div className="space-y-0">
             <B1 className="text-red-500 text-3xl font-jakarta-bold">
               A passionate
@@ -41,7 +42,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-0 leading-none">
+      <div className="flex justify-center leading-none">
         <ArrowDownToDot className="text-red-500" />
       </div>
     </DefaultLayout>

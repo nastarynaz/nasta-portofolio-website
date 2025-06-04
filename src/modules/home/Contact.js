@@ -86,14 +86,13 @@ export default function Contact() {
   }, []);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout className="items-center gap-4">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
         {/* Map Section */}
-        <div className="flex-shrink-0">
+        <div>
           <div
             ref={mapRef}
             className="w-80 h-80 bg-gray-400 rounded-sm border-[1px] border-red-500"
-            style={{ minWidth: "320px", minHeight: "320px" }}
           />
         </div>
 
@@ -160,8 +159,31 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div>
-        <B1>Send me a message</B1>
+      <div className="flex mt-8 flex-col w-full gap-4">
+        <B1 className="font-jakarta-bold">Send me a message</B1>
+        <div className="relative w-full">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="ml-4 p-2 border border-gray-300 rounded-md"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="ml-4 p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="relative w-full">
+          <textarea
+            placeholder="Your Message"
+            className="ml-4 p-2 border border-gray-300 rounded-md w-full h-32"
+          />
+        </div>
+        <div className="w-full relative">
+          <button className="bg-red-500 w-full px-4 py-2 rounded-[10px] hover:bg-red-400 cursor-pointer transition-colors">
+            <B1 className="text-white font-jakarta-bold">Send Message</B1>
+          </button>
+        </div>
       </div>
     </DefaultLayout>
   );
