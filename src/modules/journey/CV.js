@@ -9,34 +9,28 @@ import { Button } from "@/components/Elements/Button";
 export default function CV() {
   return (
     <DefaultLayout>
-      <div className="flex flex-col justify-center items-center">
+      <div className="h-[1px] mb-[20px] bg-red-500" />
+      <div className="flex flex-col">
         <H2 className="font-bold text-2xl">That’s wrap up! Or is it?</H2>
         <B1>Curious More? Look CV Here!</B1>
-        <Link
-          href="/assets/docs/cv-nasta.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          download
-        >
-          <Button>
-            <Download /> <span>Download CV</span>
-          </Button>
-        </Link>
 
+        <Button link="/assets/docs/cv-nasta.pdf" className="mt-6" download>
+          <Download size={15} /> <span>Download CV</span>
+        </Button>
         <iframe
           width="100%"
           style={{ aspectRatio: 1 / 1.414 }}
           src="/assets/docs/cv-nasta.pdf"
           title="CV Muhammad Khoirunas"
-          className="rounded-lg shadow-lg"
+          className="rounded-[10px] mt-6"
           loading="lazy"
         />
       </div>
-      <div>
-        <h2 className="text-2xl font-bold text-left">
+      <div className="flex w-full justify-center h-[700px] items-center mt-10">
+        <H2 className="font-bold text-left">
           That’s all from me. <br />
           Let’s work together in the future.
-        </h2>
+        </H2>
       </div>
     </DefaultLayout>
   );

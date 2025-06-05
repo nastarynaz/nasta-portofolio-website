@@ -1,9 +1,13 @@
+import DefaultLayout from "@/components/Layout/DefaultLayout";
+import { H2, B1 } from "@/components/Elements/Typography";
+
 export default function Education() {
   return (
-    <section className="flex flex-col justify-center items-center w-full min-h-screen">
-      <div className="w-[80%] flex flex-col justify-center items-center">
-        Education
+    <DefaultLayout>
+      <div>
+        <H2>Education</H2>
+        <B1>A whole education journey.</B1>
       </div>
-    </section>
+    </DefaultLayout>
   );
 }

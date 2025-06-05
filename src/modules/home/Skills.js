@@ -47,38 +47,7 @@ export default function Skills() {
         {/* Marquee */}
         <div>
           {/* Onverse Marquee */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">
-              Tech Stack (Fast Speed)
-            </h2>
-            <Marquee
-              speed="fast"
-              className="bg-gradient-to-r from-purple-500 to-pink-500 py-4 rounded"
-            >
-              <div className="flex items-center space-x-8 text-white">
-                {techStack.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-white/20 px-4 py-2 rounded-full font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </Marquee>
-          </div>
-
           {/* Reverse Marquee */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">
-              Reverse Direction (Slow Speed)
-            </h2>
-            <Marquee reverse speed="slow" className="bg-green-100 py-4 rounded">
-              <span className="text-green-800 font-medium px-8">
-                ← This text moves from left to right (reverse direction) →
-              </span>
-            </Marquee>
-          </div>
         </div>
       </div>
     </DefaultLayout>
