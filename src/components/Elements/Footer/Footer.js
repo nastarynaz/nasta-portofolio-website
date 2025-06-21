@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Instagram, Github, Mail, Linkedin, Music, MapPin } from "lucide-react";
-import { B1, B2, H4 } from "@/components/Elements/Typography";
+import { B1, H4 } from "@/components/Elements/Typography";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -90,7 +90,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-red-100 hover:text-white transition-colors duration-200 text-sm lg:text-base"
                   >
-                    <B2>{link.name}</B2>
+                    <B1>{link.name}</B1>
                   </Link>
                 </li>
               ))}
