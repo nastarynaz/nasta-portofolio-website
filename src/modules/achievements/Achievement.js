@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 
 export default function Achievement() {
   return (
-    <DefaultLayout className="h-screen">
+    <DefaultLayout>
       <NavbarResolver />
       {/* Title and desc */}
       <div>

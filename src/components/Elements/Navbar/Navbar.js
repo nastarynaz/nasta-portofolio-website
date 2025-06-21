@@ -50,8 +50,10 @@ export default function Navbar() {
             href="/"
             className="flex flex-row items-end group cursor-pointer"
           >
-            <p className="font-extrabold text-base lg:text-3xl">RR</p>
-            <p className="font-bold">developer</p>
+            <p className="font-extrabold text-[6vw] sm:text-base lg:text-3xl">
+              RR
+            </p>
+            <p className="text-[6vw] sm:text-base font-bold">developer</p>
           </Link>
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-row justify-evenly items-center w-[50%]">

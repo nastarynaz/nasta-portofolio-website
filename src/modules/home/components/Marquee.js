@@ -1,51 +1,74 @@
-import React from "react";
-import { cn } from "@/utils/helpers/cn";
+"use client";
 
-// Simple Marquee Component
+import { cn } from "@/utils/helpers/cn";
+import { useEffect, useRef } from "react";
+import { MarqueeRow } from "@/modules/home/components/MarqueeRow";
+
 export function Marquee({
-  children,
+  techStack,
   className,
-  reverse = false,
+  children,
   speed = "normal",
   pauseOnHover = true,
+  direction = "left",
   ...props
 }) {
-  const speedMap = {
-    slow: "30s",
-    normal: "20s",
-    fast: "10s",
-  };
+  const scrollerRef1 = useRef(null);
+  const scrollerRef2 = useRef(null);
+
+  // Duplicate logos function
+  useEffect(() => {
+    function animateScroller(scroller) {
+      if (!scroller) return;
+
+      const innerScroller = scroller.querySelector(".scroller-inner");
+      if (!innerScroller) return;
+
+      if (innerScroller.getAttribute("data-cloned") === "true") {
+        return; // Avoid cloning if already done
+      }
+
+      const innerScrollerChildren = Array.from(innerScroller.children);
+
+      innerScrollerChildren.forEach((item) => {
+        const extendedLogos = item.cloneNode(true);
+        extendedLogos.setAttribute("aria-hidden", "true");
+        innerScroller.appendChild(extendedLogos);
+      });
+
+      innerScroller.setAttribute("data-cloned", "true");
+    }
+
+    animateScroller(scrollerRef1.current);
+    animateScroller(scrollerRef2.current);
+  }, [techStack]);
 
   return (
     <div
-      className={cn("relative overflow-hidden whitespace-nowrap", className)}
+      className={cn(
+        "marquee-container w-full overflow-hidden py-4 gap-2 flex flex-col",
+        className
+      )}
       {...props}
     >
-      <div
-        className={cn(
-          "inline-block animate-marquee",
-          pauseOnHover && "hover:pause-animation"
-        )}
-        style={{
-          animation: `marquee ${speedMap[speed]} linear infinite ${
-            reverse ? "reverse" : ""
-          }`,
-        }}
-      >
-        {children}
-      </div>
-      {/* Duplicate for seamless loop */}
-      <div
-        className="inline-block animate-marquee"
-        style={{
-          animation: `marquee ${speedMap[speed]} linear infinite ${
-            reverse ? "reverse" : ""
-          }`,
-        }}
-        aria-hidden="true"
-      >
-        {children}
-      </div>
+      {/* First Marquee - Left to Right */}
+      <MarqueeRow
+        ref={scrollerRef1}
+        speed={speed}
+        pauseOnHover={pauseOnHover}
+        techItems={techStack}
+      />
+
+      {/* Second Marquee - Right to Left */}
+      <MarqueeRow
+        ref={scrollerRef2}
+        reverse={true}
+        speed={speed}
+        pauseOnHover={pauseOnHover}
+        techItems={[...techStack].reverse()}
+      />
+
+      {children}
     </div>
   );
 }

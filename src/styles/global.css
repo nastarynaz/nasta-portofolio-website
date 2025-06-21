@@ -131,3 +131,106 @@
     transform: translateX(-100%);
   }
 }
+
+.animate-textSlideUp {
+  animation: textSlideUp 18s ease-in-out infinite 1.5s;
+}
+
+@keyframes textSlideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  87.5% {
+    transform: translateY(-87.5%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.scroller {
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller-inner {
+  width: max-content;
+  will-change: transform;
+}
+
+.scroller-inner:hover.hover\:animation-paused {
+  animation-play-state: paused;
+}
+
+/* Normal speed */
+.animate-infiniteScroll {
+  animation: infiniteScroll 20s linear infinite;
+}
+
+/* Slow speed */
+.animate-infiniteScrollSlow {
+  animation: infiniteScroll 40s linear infinite;
+}
+
+/* Fast speed */
+.animate-infiniteScrollFast {
+  animation: infiniteScroll 10s linear infinite;
+}
+
+/* Reverse direction */
+.scroller-reverse .scroller-inner {
+  animation-direction: reverse;
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animate-infiniteScroll {
+    animation-duration: 15s;
+  }
+
+  .animate-infiniteScrollSlow {
+    animation-duration: 30s;
+  }
+
+  .animate-infiniteScrollFast {
+    animation-duration: 8s;
+  }
+}
+
+/* Performance optimizations */
+.scroller-inner * {
+  will-change: transform;
+}
