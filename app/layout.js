@@ -13,8 +13,8 @@ import {
 } from "@/utils/helpers/font";
 
 export const metadata = {
-  title: "Portofolio",
-  description: "Nasta Khoirunas Portofolio",
+  title: "Nasta Footprint",
+  description: "Portfolio of Nasta Khoirunas",
 };
 
 export const viewport = {

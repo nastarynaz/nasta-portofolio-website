@@ -106,21 +106,18 @@ export default function Footer() {
               {contacts.map((contact) => {
                 const IconComponent = contact.icon;
                 return (
-                  <div key={contact.alt} className="flex items-start space-x-2">
+                  <Link
+                    key={contact.alt}
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 text-red-100 hover:text-white transition-colors duration-200 group"
+                  >
                     <IconComponent
-                      className={`h-4 w-4 mt-1 flex-shrink-0 ${contact.color}`}
+                      className={`h-4 w-4 mt-1 flex-shrink-0 ${contact.color} group-hover:scale-110 transition-transform duration-200`}
                     />
-                    <div>
-                      <Link
-                        href={contact.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-red-100 hover:text-white transition-colors duration-200 text-xs lg:text-sm break-words"
-                      >
-                        <B1>{contact.alt}</B1>
-                      </Link>
-                    </div>
-                  </div>
+                    <B1>{contact.alt}</B1>
+                  </Link>
                 );
               })}
             </div>
