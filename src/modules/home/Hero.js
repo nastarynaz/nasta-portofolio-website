@@ -84,11 +84,11 @@ export default function Hero() {
   return (
     <DefaultLayout className="items-center flex flex-col gap-6">
       <NavbarResolver />
-      <div className="flex flex-col lg:flex-row justify-between gap-4 w-full items-center">
+      <div className="flex flex-col lg:flex-row justify-between gap-4 w-full lg:items-center">
         {/* Left Content */}
         <div className="relative flex space-y-6 flex-col">
           {/* Main Text */}
-          <div className="animate-fade-in space-y-2">
+          <div className="animate-fade-in w-full text-left space-y-2">
             <span className="text-[4vw] sm:text-2xl">Hello, I&apos;m</span>
             <H1 className="text-[10vw] sm:text-6xl">
               {displayText}
@@ -177,7 +177,7 @@ export default function Hero() {
             )}
           >
             {/* Photo */}
-            <div className="relative aspect-[223/316] w-[50vw] sm:w-[30vw] lg:w-[225px] xl:w-[255px]">
+            <div className="relative aspect-[223/316] w-full lg:w-[225px] xl:w-[255px]">
               <div className="absolute aspect-[223/316] w-full h-full">
                 <Image
                   src="/assets/images/foto-nasta-khoirunas.png"
