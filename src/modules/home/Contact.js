@@ -129,6 +129,9 @@ export default function Contact() {
   return (
     <DefaultLayout className="items-center gap-4">
       <div
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-once="true"
         id="contact"
         className="lg:grid flex flex-col lg:grid-cols-[1.2fr_2fr] gap-8 w-full h-full"
       >
@@ -193,7 +196,12 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full mt-10 gap-4">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true"
+        className="flex flex-col w-full mt-10 gap-4"
+      >
         <B1>Send me a message</B1>
 
         {/* Success/Error Messages */}

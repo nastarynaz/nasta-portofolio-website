@@ -9,7 +9,12 @@ export default function Skills() {
     <DefaultLayout>
       <div className="flex flex-col gap-4 w-full relative">
         {/* Highlight */}
-        <div className="text-base sm:justify-between sm:px-10 font-bold flex flex-col sm:flex-row gap-4">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className="text-base sm:justify-between sm:px-10 font-bold flex flex-col sm:flex-row gap-4"
+        >
           <div className="flex flex-row gap-2">
             <MapPin className="text-red-500" />
             <B1 className="">Based in Yogyakarta, Indonesia</B1>
@@ -26,7 +31,12 @@ export default function Skills() {
           </div>
         </div>
         {/* Description */}
-        <div className="flex flex-col mx-auto items-center justify-center pt-10 sm:w-[80%] lg:w-[75%]">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className="flex flex-col mx-auto items-center justify-center pt-10 sm:w-[80%] lg:w-[75%]"
+        >
           <B1>
             Nasta is a passionate developer with a sharp focus on mobile app and
             frontend development, blending clean code with seamless user

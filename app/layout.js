@@ -2,6 +2,7 @@ import "@/styles/global.css";
 import Navbar from "@/components/Elements/Navbar/Navbar";
 import Footer from "@/components/Elements/Footer/Footer";
 import { cn } from "@/utils/helpers/cn";
+import { AnimationProvider } from "@/utils/hooks/AnimationProvider";
 
 import {
   JakartaExtraBold,
@@ -36,7 +37,7 @@ export default function RootLayout({ children }) {
         )}
       >
         <Navbar />
-        <>{children}</>
+        <AnimationProvider>{children}</AnimationProvider>
         <Footer />
       </body>
     </html>
