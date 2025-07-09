@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,11 +20,7 @@ export function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const router = useRouter();
-  const searchParams = useSearchParams();
   const supabase = createClient();
-
-  // Check for error from redirect
-  const redirectError = searchParams.get("error");
 
   async function handleSubmit(formData) {
     setIsLoading(true);
@@ -34,7 +30,6 @@ export function Login() {
     const password = formData.get("password");
 
     try {
-      // Sign in with Supabase Auth
       const { data, error: signInError } =
         await supabase.auth.signInWithPassword({
           email,
@@ -47,7 +42,6 @@ export function Login() {
       }
 
       if (data.user) {
-        // Check if user is admin
         const { data: adminUser, error: adminError } = await supabase
           .from("admin_users")
           .select("*")
@@ -76,14 +70,11 @@ export function Login() {
         <CardDescription>Masukkan kredensial admin Anda</CardDescription>
       </CardHeader>
       <CardContent>
-        {(error || redirectError) && (
+        {error && (
           <Alert className="mb-4 border-red-200 bg-red-50">
             <AlertCircle className="h-4 w-4 text-red-600" />
             <AlertDescription className="text-red-800">
-              {error ||
-                (redirectError === "unauthorized"
-                  ? "Anda tidak memiliki akses admin"
-                  : "Terjadi kesalahan")}
+              {error}
             </AlertDescription>
           </Alert>
         )}
