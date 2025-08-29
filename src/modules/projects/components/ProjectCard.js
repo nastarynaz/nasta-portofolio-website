@@ -5,14 +5,14 @@ import { cn } from "@/utils/helpers/cn";
 export const ProjectCard = ({ className }) => (
   <div
     className={cn(
-      "relative space-y-4 border-neutral-200 border-[1px] p-4 group rounded-[10px] hover:bg-neutral-100 cursor-pointer",
+      "relative space-y-4 flex flex-col border-neutral-200 border-[1px] p-4 group rounded-[10px] hover:bg-neutral-100 cursor-pointer",
       className
     )}
   >
     <div className="relative w-full h-[250px] rounded-[2px]">
       <Image
         alt="apakek"
-        src="/projects/images/image.png"
+        src="/assets/projects/image.png"
         className="cover"
         fill
       />

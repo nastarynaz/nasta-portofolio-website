@@ -11,7 +11,7 @@ export const Button = ({
   <Link href={link} download={download ? true : undefined}>
     <button
       className={cn(
-        "flex flex-row bg-red-500 text-[4vw] sm:text-lg hover:bg-red-400 gap-2 justify-center items-center cursor-pointer group group-hover:bg-red-200 px-3 py-2 text-white rounded-[10px]",
+        "flex flex-row items-center min-w-[170px] justify-center rounded-[10px] whitespace-nowrap cursor-pointer bg-gradient-to-r from-red-400 to-red-600 hover:from-red-500 hover:to-red-700 text-white border-none px-[20px] py-[6px] font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105",
         className
       )}
       {...props}

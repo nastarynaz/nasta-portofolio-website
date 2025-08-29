@@ -1,3 +1,6 @@
+const { bgSeigaiha } = require("./src/utils/helpers/repeat/seigaiha-repeat");
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -74,4 +77,5 @@ module.exports = {
       },
     },
   },
+  plugins: [plugin(bgSeigaiha)],
 };

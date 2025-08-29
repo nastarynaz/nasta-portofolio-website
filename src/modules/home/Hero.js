@@ -9,13 +9,13 @@ import { Button } from "@/components/Elements/Button";
 import { ArrowDownToDot } from "lucide-react";
 import { cn } from "@/utils/helpers/cn";
 import { useRef } from "react";
+import { Seigaiha } from "@/components/Elements/Seigaiha";
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
-  const [isClient, setIsClient] = useState(false);
   const scrollerRef = useRef(null);
   const fullText = "Nasta Khoirunas";
 
@@ -53,11 +53,6 @@ export default function Hero() {
       animateScroller();
     }
   }, [isComplete]);
-
-  // Ensure client-side rendering
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   // Typing Effect
   useEffect(() => {
@@ -176,11 +171,13 @@ export default function Hero() {
               "space-y-0  bg-red-500 relative aspect-[258/370] rounded-[10px] px-4 flex items-end justify-center"
             )}
           >
+            {/* Seigaiha */}
+            <Seigaiha />
             {/* Photo */}
             <div className="relative aspect-[223/316] w-full lg:w-[225px] xl:w-[255px]">
               <div className="absolute aspect-[223/316] w-full h-full">
                 <Image
-                  src="/assets/images/foto-nasta-khoirunas.png"
+                  src="/assets/home/foto-nasta.webp"
                   alt="Nasta"
                   fill
                   className="object-contain"

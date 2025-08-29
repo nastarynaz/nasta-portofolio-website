@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/utils/helpers/cn";
+import { usePathname } from "next/navigation";
+import { B2 } from "@/components/Elements/Typography";
 
 const navigation = [
   {
@@ -27,6 +29,7 @@ const navigation = [
 export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleSwitch = () => {
     setIsDark(!isDark);
@@ -38,6 +41,17 @@ export default function Navbar() {
 
   const closeMobileMenu = () => {
     setIsOpen(false);
+  };
+
+  const isActive = (href) => {
+    if (!pathname) return false;
+
+    if (href === "/") {
+      return pathname === "/";
+    } else {
+      // Exact match or starts with href followed by a slash
+      return pathname === href || pathname.startsWith(href + "/");
+    }
   };
 
   return (
@@ -59,8 +73,13 @@ export default function Navbar() {
           <div className="hidden md:flex flex-row justify-evenly items-center w-[50%]">
             {navigation.map((item) => (
               <Link key={`${item.label}-${item.href}`} href={item.href}>
-                <div className=" hover:bg-grey-50 transition-all duration-300 ease-in-out px-2 py-1 rounded-xl">
-                  {item.label}
+                <div
+                  className={cn(
+                    "transition-all hover:underline duration-500 ease-in-out px-4 py-1 rounded-[10px]",
+                    isActive(item.href) ? "underline font-bold" : ""
+                  )}
+                >
+                  <B2>{item.label}</B2>
                 </div>
               </Link>
             ))}
@@ -68,14 +87,43 @@ export default function Navbar() {
           {/* Navigation */}
           <div className="flex flex-row justify-center items-center gap-4">
             {/* Dark - Light Mode Switch */}
-            <div onClick={toggleSwitch}>
-              {isDark && <Moon />}
-              {!isDark && <Sun />}
-            </div>
+            <button
+              onClick={toggleSwitch}
+              className="flex items-center justify-center p-2 rounded-[10px] bg-red-500 hover:bg-red-400 transition-all duration-300 group"
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
+            >
+              {isDark ? (
+                <Moon
+                  className="text-white  transition-colors duration-300"
+                  size={18}
+                />
+              ) : (
+                <Sun
+                  className="text-white  transition-colors duration-300"
+                  size={18}
+                />
+              )}
+            </button>
             {/* Mobile Menu Toggle */}
-            <div className="md:hidden" onClick={toggleMobileMenu}>
-              {isOpen ? <X /> : <Menu />}
-            </div>
+            <button
+              className="md:hidden flex items-center justify-center p-2 rounded-[10px] bg-gray-100 hover:bg-red-100 transition-all duration-300 group"
+              onClick={toggleMobileMenu}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? (
+                <X
+                  className="text-gray-600 group-hover:text-red-500 transition-colors duration-300"
+                  size={18}
+                />
+              ) : (
+                <Menu
+                  className="text-gray-600 group-hover:text-red-500 transition-colors duration-300"
+                  size={18}
+                />
+              )}
+            </button>
           </div>
         </div>
         <div
@@ -90,8 +138,13 @@ export default function Navbar() {
               href={item.href}
               onClick={closeMobileMenu}
             >
-              <div className="my-2 hover:bg-grey-50 w-full flex justify-center transition-all duration-300 ease-in-out px-2 py-1 rounded-[10px]">
-                {item.label}
+              <div
+                className={cn(
+                  "my-2 hover:underline w-full flex justify-center transition-all duration-300 ease-in-out px-2 py-1 rounded-[10px]",
+                  isActive(item.href) ? "underline font-bold" : ""
+                )}
+              >
+                <B2>{item.label}</B2>
               </div>
             </Link>
           ))}
